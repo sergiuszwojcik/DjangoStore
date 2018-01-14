@@ -16,6 +16,8 @@ Including another URLconf
 from django.conf import settings
 from django.conf.urls.static import static
 
+from products.views import ProductListView, ProductDetail
+
 from django.conf.urls import url
 from django.contrib import admin
 
@@ -27,6 +29,9 @@ urlpatterns = [
     url(r'^contact/', contact_page),
     url(r'^login/$', login_page),
     url(r'^register/$', register_page),
+    url(r'^products/$', ProductListView.as_view()),
+    url(r'^products/(?P<pk>\d+)/$', ProductDetail.as_view()),
+
 ]
 # Media files are all whatever we upload ourselves
 if settings.DEBUG:
