@@ -16,9 +16,14 @@ Including another URLconf
 from django.conf import settings
 from django.conf.urls.static import static
 
-from products.views import ProductListView, ProductDetail
+# from products.views import (
+#     ProductListView,
+#     ProductDetailView,
+#     ProductDetailSlugView,
+#     ProductFeaturedDetailView,
+#     ProductFeaturedListView)
 
-from django.conf.urls import url
+from django.conf.urls import url, include
 from django.contrib import admin
 
 from .views import home_page, contact_page, login_page, register_page
@@ -29,8 +34,12 @@ urlpatterns = [
     url(r'^contact/', contact_page),
     url(r'^login/$', login_page),
     url(r'^register/$', register_page),
-    url(r'^products/$', ProductListView.as_view()),
-    url(r'^products/(?P<pk>\d+)/$', ProductDetail.as_view()),
+    url(r'^products/', include("products.urls")),
+    # url(r'^products/$', ProductListView.as_view()),
+    # url(r'^products/(?P<pk>\d+)/$', ProductDetailView.as_view()),
+    # url(r'^products/(?P<slug>[\w-]+)/$', ProductDetailSlugView.as_view()),
+    # url(r'^featured/$', ProductFeaturedListView.as_view()),
+    # url(r'^featured/(?P<pk>\d+)/$', ProductFeaturedDetailView.as_view()),
 
 ]
 # Media files are all whatever we upload ourselves

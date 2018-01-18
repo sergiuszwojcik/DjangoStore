@@ -29,6 +29,7 @@
         <option value="$MODULE_DIR$/expresstrade/products/templates/products" />
         <option value="$MODULE_DIR$/expresstrade/templates/auth" />
         <option value="$MODULE_DIR$/expresstrade/templates/contact" />
+        <option value="$MODULE_DIR$/expresstrade/templates/base" />
       </list>
     </option>
   </component>

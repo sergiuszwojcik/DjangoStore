@@ -1,15 +1,10 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>ListView Test</title>
+{% extends "base.html" %}
 
+{% block content %}
     {{ object.title }} <br>
     {{ object.description }} <br>
     {{ object.price }} <br>
-
-</head>
-<body>
-
-</body>
-</html>
+    {% if object.image %}
+        <img src="{{ object.image.url }}" class="img-fluid"/>
+    {% endif %}
+{% endblock %}
