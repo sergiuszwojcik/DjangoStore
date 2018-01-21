@@ -1,15 +1,9 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>ListView Test</title>
+{% extends "base.html" %}
+
+{% block content %}
     {% for obj in object_list %}
-    <a href="{{ obj.get_absolute_url }}"><p>{{obj.title}}</p></a>
+        {% include 'products/snippets/card.html' with instance=obj %}
+{#        <a href="{{ obj.get_absolute_url }}"><p>{{ obj.title }}</p></a>#}
     {% endfor %}
 
-
-</head>
-<body>
-
-</body>
-</html>
+{% endblock content %}
