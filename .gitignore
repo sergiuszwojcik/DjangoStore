@@ -106,3 +106,4 @@ venv.bak/
 .mypy_cache/
 
 .PythonProject_Notes.txt
+.idea/dataSources.local.xml
