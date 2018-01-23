@@ -35,6 +35,7 @@ urlpatterns = [
     url(r'^login/$', login_page, name='login'),
     url(r'^register/$', register_page, name='register'),
     url(r'^products/', include("products.urls", namespace="products")),
+    url(r'^search/', include("searchbox.urls", namespace="search"))
     # url(r'^products/$', ProductListView.as_view()),
     # url(r'^products/(?P<pk>\d+)/$', ProductDetailView.as_view()),
     # url(r'^products/(?P<slug>[\w-]+)/$', ProductDetailSlugView.as_view()),

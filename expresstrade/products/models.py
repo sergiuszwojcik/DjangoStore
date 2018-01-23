@@ -1,9 +1,10 @@
 import os
 from django.db import models
-from django.db.models.signals import pre_save, post_save
 from django.utils.text import slugify
+from django.db.models.signals import pre_save, post_save
 from .utils import unique_slug_generator
 from django.urls import reverse
+from django.db.models import Q
 
 
 # Generate name for uploaded images from product slugify(product.title)
@@ -33,6 +34,12 @@ class ProductQuerySet(models.query.QuerySet):
     def active(self):
         return self.filter(active=True)
 
+    def search(self, query):
+        lookups = (Q(title__icontains=query) |  # | or another things searching for Q(description__icontains=q)
+                   # Reverse relation to ProductTag model. Returning products by tag title
+                   Q(producttag__title__icontains=query))
+        return self.filter(lookups).distinct()
+
 
 class ProductManager(models.Manager):
     def all(self):
@@ -53,6 +60,9 @@ class ProductManager(models.Manager):
             return qs.first()
         return None
 
+    def search(self, query):
+        return self.get_queryset().active().search(query)
+
 
 class Product(models.Model):
     title = models.CharField(max_length=120)
@@ -65,6 +75,7 @@ class Product(models.Model):
     image = models.ImageField(upload_to=upload_image_path, null=True, blank=True)
     featured = models.BooleanField(default=False)
     active = models.BooleanField(default=True)
+    timestamp = models.DateTimeField(auto_now_add=True)
 
     objects = ProductManager()
 

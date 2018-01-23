@@ -108,3 +108,5 @@ venv.bak/
 .PythonProject_Notes.txt
 .idea/dataSources.local.xml
 PythonProject_Notes.txt
+/Project_notes.txt
+Project_notes.txt
