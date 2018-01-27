@@ -33,6 +33,9 @@
         <option value="$MODULE_DIR$/expresstrade/searchbox/templates" />
         <option value="$MODULE_DIR$/expresstrade/products/templates/products/snippets" />
         <option value="$MODULE_DIR$/expresstrade/searchbox/templates/search" />
+        <option value="$MODULE_DIR$/expresstrade/cart/templates" />
+        <option value="$MODULE_DIR$/expresstrade/cart/templates/cart" />
+        <option value="$MODULE_DIR$/expresstrade/searchbox/templates/search/snippets" />
       </list>
     </option>
   </component>

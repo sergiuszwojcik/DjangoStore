@@ -15,6 +15,29 @@ Including another URLconf
 """
 from django.conf import settings
 from django.conf.urls.static import static
+from django.conf.urls import url, include
+from django.contrib import admin
+
+from .views import home_page, contact_page, login_page, register_page, logout_page
+
+urlpatterns = [
+    url(r'^admin/', admin.site.urls),
+    url(r'^$', home_page, name='home'),
+    url(r'^logout/$', logout_page, name='logout'),
+    url(r'^contact/', contact_page, name='contact'),
+    url(r'^login/$', login_page, name='login'),
+    url(r'^register/$', register_page, name='register'),
+    url(r'^products/', include("products.urls", namespace="products")),
+    url(r'^search/', include("searchbox.urls", namespace="search")),
+    url(r'^cart/', include("cart.urls", namespace="cart"))
+
+]
+# Media files are all whatever we upload ourselves
+if settings.DEBUG:
+    urlpatterns = urlpatterns + static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)
+    urlpatterns = urlpatterns + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
+
+# OLD VERSION
 
 # from products.views import (
 #     ProductListView,
@@ -23,27 +46,10 @@ from django.conf.urls.static import static
 #     ProductFeaturedDetailView,
 #     ProductFeaturedListView)
 
-from django.conf.urls import url, include
-from django.contrib import admin
+# URLS
 
-from .views import home_page, contact_page, login_page, register_page
-
-urlpatterns = [
-    url(r'^admin/', admin.site.urls),
-    url(r'^$', home_page, name='home'),
-    url(r'^contact/', contact_page, name='contact'),
-    url(r'^login/$', login_page, name='login'),
-    url(r'^register/$', register_page, name='register'),
-    url(r'^products/', include("products.urls", namespace="products")),
-    url(r'^search/', include("searchbox.urls", namespace="search"))
-    # url(r'^products/$', ProductListView.as_view()),
-    # url(r'^products/(?P<pk>\d+)/$', ProductDetailView.as_view()),
-    # url(r'^products/(?P<slug>[\w-]+)/$', ProductDetailSlugView.as_view()),
-    # url(r'^featured/$', ProductFeaturedListView.as_view()),
-    # url(r'^featured/(?P<pk>\d+)/$', ProductFeaturedDetailView.as_view()),
-
-]
-# Media files are all whatever we upload ourselves
-if settings.DEBUG:
-    urlpatterns = urlpatterns + static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)
-    urlpatterns = urlpatterns + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
+# url(r'^products/$', ProductListView.as_view()),
+# url(r'^products/(?P<pk>\d+)/$', ProductDetailView.as_view()),
+# url(r'^products/(?P<slug>[\w-]+)/$', ProductDetailSlugView.as_view()),
+# url(r'^featured/$', ProductFeaturedListView.as_view()),
+# url(r'^featured/(?P<pk>\d+)/$', ProductFeaturedDetailView.as_view()),

@@ -16,6 +16,18 @@
 <div class="container">
     {% block content %}{% endblock %}
 </div>
+
+{# home_page block #}
+{% block homepage %}{% endblock %}
+
 {% include "base/js.html" %}
+
+{# Include footer #}
+<div class="container">
+{% include "base/footer.html" %}
+</div>
+
+
+
 </body>
 </html>

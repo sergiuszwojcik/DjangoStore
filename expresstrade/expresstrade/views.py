@@ -1,13 +1,14 @@
 from django.contrib.auth import login, authenticate, get_user_model
 from django.shortcuts import render, redirect
 from .form import ContactForm, LoginForm, RegisterForm
+from django.contrib.auth import logout
 
 User = get_user_model()
 
 
 def home_page(request):
     context = {
-        "title": "test czy context dziala",
+        "title": "Don't wait just buy!",
         "content": "Welcome at home page"
     }
 
@@ -29,6 +30,11 @@ def contact_page(request):
     return render(request, "contact/contact_page.html", context)
 
 
+def logout_page(request):
+    logout(request)
+    return render(request, "auth/logout.html")
+
+
 def login_page(request):
     form = LoginForm(request.POST or None)
     context = {
@@ -47,7 +53,7 @@ def login_page(request):
             print(request.user.is_authenticated)
             # Redirect to a success page.
             # context["form"] = LoginForm
-            return redirect("/login")
+            return redirect("home")
         else:
             # Return an 'invalid login' error message.
             print("Error")

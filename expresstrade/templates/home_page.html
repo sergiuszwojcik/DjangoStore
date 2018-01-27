@@ -1,48 +1,202 @@
 {% extends "base.html" %}
 {% load static %}
 {#Inside all content what we want#}
-{% block content %}
+
+{% block homepage %}
+    <link rel="stylesheet" href='{% static "css/home_page.css" %}'>
+
+    {#    CAROUSEL SLIDES  #}
+
+    <div id="myCarousel" class="carousel slide" data-ride="carousel">
+        <ol class="carousel-indicators">
+            <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
+            <li data-target="#myCarousel" data-slide-to="1"></li>
+            <li data-target="#myCarousel" data-slide-to="2"></li>
+        </ol>
+        <div class="carousel-inner" role="listbox">
+            <div class="carousel-item active">
+                <img class="first-slide" src="{% static 'img/geforce.jpg' %}" alt="First slide">
+                <div class="container">
+                    <div class="carousel-caption d-none d-md-block text-center">
+                        <h1>GTX TITAN X SALE!</h1>
+                        <p>Checkout our newest occasion to buy the GeForce GTX TITAN X graphic Card.
+                            Only in our shop the best price!.</p>
+                        <p><a class="btn btn-lg btn-primary" href="#" role="button">Read More</a></p>
+                    </div>
+                </div>
+            </div>
+            <div class="carousel-item">
+                <img class="second-slide" src="{% static 'img/witcher.jpg' %}" alt="Second slide">
+                <div class="container">
+                    <div class="carousel-caption d-none d-md-block text-center">
+                        <h1>Get the best gaming set!</h1>
+                        <p>Checkout our discounts on razer gaming accesory. Become the pro player with
+                            TradeExpress!</p>
+                        <p><a class="btn btn-lg btn-primary" href="#" role="button">Become Pro</a></p>
+                    </div>
+                </div>
+            </div>
+            <div class="carousel-item">
+                <img class="third-slide" src="{% static 'img/gamingback.jpg' %}" alt="Third slide">
+                <div class="container">
+                    <div class="carousel-caption d-none d-md-block text-center">
+                        <h1>The best game prices!</h1>
+                        <p>Checkout our games sale! We are selling the best and most popular
+                            games of 2017 year!</p>
+                        <p><a class="btn btn-lg btn-primary" href="#" role="button">Checkout sale</a></p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <a class="carousel-control-prev" href="#myCarousel" role="button" data-slide="prev">
+            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+            <span class="sr-only">Previous</span>
+        </a>
+        <a class="carousel-control-next" href="#myCarousel" role="button" data-slide="next">
+            <span class="carousel-control-next-icon" aria-hidden="true"></span>
+            <span class="sr-only">Next</span>
+        </a>
+    </div>
+
+
+
+
+
+
+    <!-- Marketing messaging and featurettes
+    ================================================== -->
+    <!-- Wrap the rest of the page in another container to center all the content. -->
+
     <div class="text-center">
-        <h1>Hello, world!</h1>
+        <h1>Checkout our newest sales!</h1>
         <p>{{ title }}</p>
     </div>
 
-    <div class="row">
-        <div class="col">
-            <img src="{% static 'img/starcraft.jpg' %}" class="img-fluid"/>
-            <p1>{{ content }}</p1>
+    <div class="container marketing">
+
+        <!-- Three columns of text below the carousel -->
+        <div class="row">
+            <div class="col-lg-4">
+                <img class="rounded-circle"
+                     src="{% static 'img/starcraft.jpg' %}"
+                     alt="Generic placeholder image" width="140" height="140">
+                <h2>Starcraft 2</h2>
+                <p>StarCraft II: Wings of Liberty is a military science fiction real-time strategy video game developed
+                    and published by Blizzard Entertainment. It was released worldwide in July 2010 for Microsoft
+                    Windows. A sequel to the 1998 video game StarCraft and its expansion set Brood War, the
+                    game is split into three installments: the base game with the subtitle Wings of Liberty, an
+                    expansion pack Heart of the Swarm, and a stand-alone expansion pack Legacy of the Void.</p>
+                <p><a class="btn btn-secondary" href="#" role="button">View details &raquo;</a></p>
+            </div><!-- /.col-lg-4 -->
+            <div class="col-lg-4">
+                <img class="rounded-circle"
+                     src="{% static 'img/diablo3.jpg' %}"
+                     alt="Generic placeholder image" width="140" height="140">
+                <h2>Diablo 3</h2>
+                <p>Diablo III is a dungeon crawler action role-playing video game developed and published by Blizzard
+                    Entertainment. It is the third installment in the Diablo franchise and was released in the Americas,
+                    Europe, South Korea, and Taiwan on May 15, 2012, and Russia on June 7, 2012, for Microsoft Windows
+                    and macOS. A console version was released for the PlayStation 3 and Xbox 360 on September 3, 2013.
+                    Versions for PlayStation 4 and Xbox One were released on August 19, 2014.</p>
+                <p><a class="btn btn-secondary" href="#" role="button">View details &raquo;</a></p>
+            </div><!-- /.col-lg-4 -->
+            <div class="col-lg-4">
+                <img class="rounded-circle"
+                     src="{% static 'img/wow.jpg' %}"
+                     alt="Generic placeholder image" width="140" height="140">
+                <h2>World of warcraft</h2>
+                <p>World of Warcraft (WoW) is a massively multiplayer online role-playing game (MMORPG) released in 2004
+                    by Blizzard Entertainment. It is the fourth released game set in the Warcraft fantasy universe.
+                    World of Warcraft takes place within the Warcraft world of Azeroth, approximately four years after
+                    the events at the conclusion of Blizzard's previous Warcraft release, Warcraft III: The Frozen
+                    Throne. Blizzard Entertainment announced World of Warcraft on September 2, 2001.</p>
+                <p><a class="btn btn-secondary" href="#" role="button">View details &raquo;</a></p>
+            </div><!-- /.col-lg-4 -->
+        </div><!-- /.row -->
+
+
+        <!-- START THE FEATURETTES -->
+
+        <hr class="featurette-divider">
+
+        <div class="row featurette">
+            <div class="col-md-7">
+                <h2 class="featurette-heading">FOR GAMER BY GAMER. <span
+                        class="text-muted">RAZER OUROBOROS!</span></h2>
+                <p class="lead">From an adjustable arched palm rest, to a retractable back, as well as four
+                    interchangeable side panels, the Razer Ouroboros is fully customizable to your personal needs. It
+                    fits perfectly with any hand length, shape and grip-style – maximize your comfort and reduce fatigue
+                    over extended play.</p>
+                <h3>$96.45</h3>
+            </div>
+            <div class="col-md-5">
+                <img src='{% static 'img/razermouse.jpg' %}'
+                     class="featurette-image img-fluid mx-auto" data-src="holder.js/500x500/auto"
+                     alt="Generic placeholder image">
+            </div>
         </div>
-    </div>
+
+        <hr class="featurette-divider">
+
+        <div class="row featurette">
+            <div class="col-md-7 order-md-2">
+                <h2 class="featurette-heading">THE BEST GAMING CHAIR. <span
+                        class="text-muted">LIKEREGAL.</span></h2>
+                <p class="lead">With comfortable three-dimensional enveloped back, make you comfortable. You can adjust
+                    the angle of the chair as what you want. You can lie down when you feel tired and you also can sit
+                    to finish the work. With stable structure, you could lie or sit securely. With sponge material
+                    cushion, you would feel cosy. </p>
+                <h3>$169.40</h3>
+            </div>
+            <div class="col-md-5 order-md-1">
+                <img src='{% static 'img/gamingchair.jpg' %}'
+                     class="featurette-image img-fluid mx-auto" data-src="holder.js/500x500/auto"
+                     alt="Generic placeholder image">
+            </div>
+        </div>
+
+        <hr class="featurette-divider">
+
+
+        <div class="row featurette">
+            <div class="col-md-7">
+                <h2 class="featurette-heading">GEFORCE GTX 1080 Ti. <span class="text-muted">ULTIMATE GEFORCE.</span>
+                </h2>
+                <p class="lead">The GeForce® GTX 1080 Ti is NVIDIA's new flagship gaming GPU, based on the NVIDIA
+                    Pascal™ architecture. The latest addition to the ultimate gaming platform, this card is packed with
+                    extreme gaming horsepower, next-gen 11 Gbps GDDR5X memory, and a massive 11 GB frame buffer.
+                    #GameReady.</p>
+                <h3>$699.00</h3>
+            </div>
+            <div class="col-md-5">
+                <img src='{% static 'img/geforceti.jpg' %}'
+                     class="featurette-image img-fluid mx-auto" data-src="holder.js/500x500/auto"
+                     alt="Generic placeholder image">
+            </div>
+        </div>
+
+        <hr class="featurette-divider">
+
+        <!-- /END THE FEATURETTES -->
+
+    </div><!-- /.container -->
+    </div><!-- /.container -->
+
+
+
+    <!-- Bootstrap core JavaScript
+   ================================================== -->
+    <!-- Placed at the end of the document so the pages load faster -->
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
+            integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
+            crossorigin="anonymous"></script>
+    <script>window.jQuery || document.write('<script src="../../../../assets/js/vendor/jquery-slim.min.js"><\/script>')
+    </script>
+    <script src="../../../../assets/js/vendor/popper.min.js"></script>
+    <script src="../../../../dist/js/bootstrap.min.js"></script>
+    <!-- Just to make our placeholder images work. Don't actually copy the next line! -->
+    <script src="../../../../assets/js/vendor/holder.min.js"></script>
+
 
 {% endblock %}
 
-
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <!-- Required meta tags -->
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-
-    <!-- Bootstrap CSS -->
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.3/css/bootstrap.min.css"
-          integrity="sha384-Zug+QiDoJOrZ5t4lssLdxGhVrurbmBWopoEl+M6BdEfwnCJZtKxi1KgxUyJq13dy" crossorigin="anonymous">
-    <link rel="stylesheet" href='{% static "css/main.css" %}'>
-    <title>Hello, world!</title>
-</head>
-<body>
-
-
-<!-- Optional JavaScript -->
-<!-- jQuery first, then Popper.js, then Bootstrap JS -->
-<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
-        integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
-        crossorigin="anonymous"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"
-        integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
-        crossorigin="anonymous"></script>
-<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.3/js/bootstrap.min.js"
-        integrity="sha384-a5N7Y/aK3qNeh15eJKGWxsqtnX/wWdSZSKp+81YjTmS15nvnvxKHuzaWwXHDli+4"
-        crossorigin="anonymous"></script>
-</body>
-</html>
